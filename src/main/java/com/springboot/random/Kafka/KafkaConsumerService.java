@@ -1,4 +1,4 @@
-package com.springboot.random;
+package com.springboot.random.Kafka;
 
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
