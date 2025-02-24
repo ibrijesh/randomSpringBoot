@@ -9,6 +9,8 @@ services:
     volumes:
       - ./data/zookeeper/data:/var/lib/zookeeper/data
       - ./data/zookeeper/log:/var/lib/zookeeper/log
+    profiles:
+      - "kafka"
 
   kafka:
     image: confluentinc/cp-kafka:latest
@@ -28,6 +30,8 @@ services:
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
     volumes:
       - ./data/kafka/data:/var/lib/kafka/data
+    profiles:
+      - "kafka"
 
 
   kafka-ui:
@@ -40,3 +44,5 @@ services:
       KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:9092
     depends_on:
       - kafka
+    profiles:
+      - "kafka"
